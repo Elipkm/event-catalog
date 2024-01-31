@@ -1,0 +1,23 @@
+
+
+<div class="content">
+    <h1 class="heading">Quellen</h1>
+
+    <p-button class="actionButton" (click)="setNeueQuelle()"><i class="pi pi-plus"></i></p-button>
+
+    @for (quelle of this.quellen; track quelle.name) {
+        <div class="data-entry">
+
+            <p><b>{{quelle.name}}:</b></p>
+            
+            <p-button class="actionButton" size="small" (click)="edit(quelle)" severity="secondary"><i class="pi pi-file-edit"></i></p-button>
+            <p-button class="actionButton" size="small" (click)="delete(quelle)" severity="secondary"><i class="pi pi-trash"></i></p-button>
+        </div>
+    }
+
+    <app-quelle-form [(quelle)]="editQuelle" (saved)="loadQuellen($event)"></app-quelle-form>
+    <app-quelle-form [(neu)]="neueQuelle" (saved)="loadQuellen($event)"></app-quelle-form>
+
+    <p-button class="navigationButton" (click)="goToHome()"><i class="pi pi-home"></i></p-button>
+</div>
+

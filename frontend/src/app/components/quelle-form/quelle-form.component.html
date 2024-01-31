@@ -1,0 +1,40 @@
+
+@if(this.quelle || this.neu) {
+    <h2>Quelle-Formular</h2>
+    @if(this.quelle){
+       <p>Bearbeiten: {{quelle.name}}</p>
+    }
+    @if(this.neu) {
+      <p>Neuanlage</p>
+    }
+
+    <form [formGroup]="dataForm">
+        <div>
+          <label for="id">ID:</label>
+          <input type="number" id="id" formControlName="id"/>
+        </div>
+        <div>
+          <label for="name">Name:</label>
+          <input type="text" id="name" formControlName="name" />
+        </div>
+        <div>
+          <label for="url">URL:</label>
+          <input type="text" id="url" formControlName="url" />
+        </div>
+        <div>
+          <label for="resolution_width">Resolution Width:</label>
+          <input type="number" id="resolution_width" formControlName="resolution_width" />
+        </div>
+        <div>
+          <label for="resolution_height">Resolution Height:</label>
+          <input type="number" id="resolution_height" formControlName="resolution_height" />
+        </div>
+        <div>
+          <label for="anzahl_bilder">Anzahl Bilder:</label>
+          <input type="number" id="anzahl_bilder" formControlName="anzahl_bilder" />
+        </div>
+    </form>
+       
+    <p-button (click)="save()" [disabled]="!dataForm.valid"><i class="pi pi-save"></i></p-button>
+    <p-button (click)="cancel()"><i class="pi pi-times"></i></p-button>
+}

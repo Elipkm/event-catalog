@@ -1,0 +1,21 @@
+<div class="content">
+    <h2>Katalog Ansicht in App</h2>
+
+    <p>Gallerie</p>
+
+    <p-dropdown [options]="quellenListe" [(ngModel)]="selectedQuelle" optionLabel="name" 
+    placeholder="Quelle auswaehlen" (onChange)="updateImages($event)" class="my-dropdown"></p-dropdown>
+
+    <p-galleria [value]="selectedQuelleImages?.imagesId" [showIndicators]="true" [showThumbnails]="false"
+    [containerStyle]="{ 'max-width': '640px' }">
+        <ng-template pTemplate="item" let-item>
+            <img [src]="selectedQuelleImages?.baseImageUrl + item" style="width: 100%; display: block;" />
+        </ng-template>
+    <ng-template pTemplate="caption" let-item>
+            <h4 style="margin-bottom: .5rem; color: #ffffff;">{{ item?.quelle?.name }}</h4>
+            <p>{{ item?.quelle?.url }}</p>
+        </ng-template>
+    </p-galleria>
+
+    <p-button class="navigationButton" (click)="goToHome()"><i class="pi pi-home"></i></p-button>
+</div>

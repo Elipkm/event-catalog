@@ -1,0 +1,23 @@
+
+
+.data-entry p, p-button {
+    display: inline;
+    margin-right: 1em;
+}
+
+.data-entry {
+    margin-bottom: 1em;
+    border: 1px dotted rgba(173, 167, 167, 0.164);
+}
+
+.navigationButton {
+    margin-top: 1em;
+}
+
+.actionButton {
+    margin: 1em;
+    padding: 0.5em;
+}
+p-button {
+    padding: 0.5em !important;
+}

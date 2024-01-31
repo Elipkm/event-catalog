@@ -1,0 +1,11 @@
+
+.navigationButtonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.navigationButtonContainer * {
+    margin-bottom: 1em;
+}
