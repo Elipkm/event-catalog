@@ -27,6 +27,7 @@ export class KatalogMainViewComponent implements OnInit {
 
   myQuelleImages?: QuelleImages[] = [];
   position: any = "'bottom'";
+  activeIndex: number = 0;
 
   selectedQuelleImages?: QuelleImages;
   selectedQuelle?: Quelle;
@@ -48,9 +49,18 @@ export class KatalogMainViewComponent implements OnInit {
 
   updateImages(event: any) {
     if(!this.selectedQuelle) return;
+    this.activeIndex = 0;
     this.quelleImagesService.getQuelleImages(this.selectedQuelle).subscribe((quelleImages?: QuelleImages) => {
       this.selectedQuelleImages = quelleImages;
     });
+  }
+  changeIndex(event: any) {
+    if(this.selectedQuelleImages) {
+      this.activeIndex = event;
+      if(this.activeIndex >= this.selectedQuelleImages.imagesId.length) {
+        this.activeIndex = 0;
+      }
+    }
   }
 
 }
