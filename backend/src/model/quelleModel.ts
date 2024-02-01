@@ -1,10 +1,18 @@
+import { Clip } from "./clipModel";
 
 export interface Quelle {
     id: number;
     name: string;
     url: string;
     // config options
-    resolution_widht: number;
-    resolution_height: number;
-    anzahl_bilder: number;
+    viewport_width?: number;
+    viewport_height?: number;
+    fullPage?: boolean;
+    clip?: Clip;
+    multipleClips?: boolean;
+    targetNumberOfClipsX?: number;
+    targetNumberOfClipsY?: number;
+    //exclude clips at (x, y)
+    
+    optimizeSpeed?: boolean;
 }

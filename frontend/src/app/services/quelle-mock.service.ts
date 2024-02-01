@@ -21,17 +21,11 @@ export class QuelleMockService implements QuelleApiService {
             id: 1,
             name: 'Quelle 1',
             url: 'https://www.quelle.de',
-            resolution_widht: 1920,
-            resolution_height: 1080,
-            anzahl_bilder: 3
         },
         {
             id: 2,
             name: 'Quelle 2',
             url: 'https://www.quelle2.de',
-            resolution_widht: 600,
-            resolution_height: 800,
-            anzahl_bilder: 5
         }
     ];
     getQuellen(): Observable<Quelle[]> {

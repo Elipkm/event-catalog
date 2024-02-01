@@ -9,3 +9,7 @@
 .navigationButtonContainer * {
     margin-bottom: 1em;
 }
+
+.p-listbox .p-listbox-list .p-listbox-item {
+    background-color: red;
+}

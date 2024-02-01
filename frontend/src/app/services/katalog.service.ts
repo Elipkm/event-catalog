@@ -15,6 +15,9 @@ export class KatalogService implements KatalogApiService {
     updateKatalog(): Observable<any> {
         return this.http.post('http://localhost:3000/api/katalog/update', {});
     }
+    updateKatalogSpecificQuellen(quellen: Quelle[]): Observable<any> {
+        return this.http.put('http://localhost:3000/api/katalog/updateSpecific', quellen);
+    }
     getKatalog(quellen: Quelle[]): Katalog {
         throw new Error("Method not implemented.");
     }
