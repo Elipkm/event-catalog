@@ -3,7 +3,7 @@
 
     <p>Gallerie</p>
 
-    <p-dropdown [options]="quellenListe" [(ngModel)]="selectedQuelle" optionLabel="name"
+    <p-dropdown [options]="quellenDropDownOptions" [(ngModel)]="selectedQuelle" optionLabel="label" optionValue="value"
     placeholder="Quelle auswaehlen" (onChange)="updateImages($event)" class="my-dropdown"></p-dropdown>
 
     <p-galleria [value]="selectedQuelleImages?.imagesId" [showIndicators]="true" [showThumbnails]="false" [activeIndex]="activeIndex"

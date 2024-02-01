@@ -25,21 +25,21 @@ import { Quelle } from '../../models/quelle.model';
 })
 export class KatalogMainViewComponent implements OnInit {
 
-  myQuelleImages?: QuelleImages[] = [];
   position: any = "'bottom'";
   activeIndex: number = 0;
 
   selectedQuelleImages?: QuelleImages;
   selectedQuelle?: Quelle;
 
-  quellenListe: Quelle[] = [];
+  quellenDropDownOptions: SelectItem[] = [];
 
 
   constructor(private router: Router, private quelleService: QuelleService, private quelleImagesService: QuelleImagesService) {}
 
   ngOnInit() {
     this.quelleService.getQuellen().forEach((quellenList: Quelle[]) => {
-      this.quellenListe = quellenList;
+      this.quellenDropDownOptions.push({label: "---", value: undefined});
+      this.quellenDropDownOptions.push(...quellenList.map((quelle) => {return {label: quelle.name, value: quelle}}));
     }); 
   }
 
@@ -48,7 +48,10 @@ export class KatalogMainViewComponent implements OnInit {
   }
 
   updateImages(event: any) {
-    if(!this.selectedQuelle) return;
+    if(!this.selectedQuelle){
+      this.selectedQuelleImages = undefined;
+      return;
+    }
     this.activeIndex = 0;
     this.quelleImagesService.getQuelleImages(this.selectedQuelle).subscribe((quelleImages?: QuelleImages) => {
       this.selectedQuelleImages = quelleImages;

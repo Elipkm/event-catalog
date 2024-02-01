@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "Hello World",
-    "url": "qwer",
+    "url": "e/router",
     "resolution_width": null,
     "resolution_height": null,
     "anzahl_bilder": null
@@ -10,7 +10,7 @@
   {
     "id": 3,
     "name": "Sweet Sound",
-    "url": "sweet-sound.com",
+    "url": "https://angular.io/guide/router",
     "resolution_width": null,
     "resolution_height": null,
     "anzahl_bilder": null

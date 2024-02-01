@@ -5,7 +5,7 @@
     <div class="navigationButtonContainer">
         <p-button class="navigationButton" (click)="goToQuellen()">Quellen</p-button>
         <p-button class="navigationButton" (click)="updateKatalog()">Katalog-Update</p-button>
-        <p-button class="navigationButton" (click)="goToKatalog()">Katalog Ansicht</p-button>
-        <p-button class="navigationButton" (click)="downloadKatalog()">Download Katalog</p-button>
+        <p-button class="navigationButton" (click)="goToKatalog()" [disabled]="updatingKatalog">Katalog Ansicht</p-button>
+        <p-button class="navigationButton" (click)="downloadKatalog()" [disabled]="updatingKatalog">Download Katalog</p-button>
     </div>
 </div>
