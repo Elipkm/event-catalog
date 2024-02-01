@@ -22,9 +22,11 @@ export class QuelleFormComponent {
   @Output() saved: EventEmitter<boolean> = new EventEmitter<boolean>();
 
   dataForm: FormGroup;
+  clipFormGroup: FormGroup;
 
   constructor(private fb: FormBuilder, private quelleService: QuelleService){
     this.dataForm = this.fb.group({});
+    this.clipFormGroup = this.fb.group({});
   }
 
   ngOnInit(){
@@ -40,9 +42,11 @@ export class QuelleFormComponent {
     if(this.quelle){
       console.log("patch")
       console.log("quelle", this.quelle);
+      this.clipFormGroup.reset();
       this.dataForm.patchValue(this.quelle);
     } else {
       this.dataForm.reset();
+      this.clipFormGroup.reset();
     }
 
   }
@@ -53,18 +57,35 @@ export class QuelleFormComponent {
   }
 
   initializeForm(): void {
+    this.clipFormGroup = this.fb.group({
+      x: new FormControl(),
+      y: new FormControl(),
+      width: new FormControl(),
+      height: new FormControl()
+    });
     this.dataForm = this.fb.group({
       id: new FormControl({value: "", disabled: true}),
       name: new FormControl("", Validators.required),
       url: new FormControl("", Validators.required),
-      resolution_width: new FormControl(""),
-      resolution_height: new FormControl(""),
-      anzahl_bilder: new FormControl("")
+      viewport_width: new FormControl(),
+      viewport_height: new FormControl(),
+      fullPage: new FormControl(false),
+      clip: this.clipFormGroup,
+      multipleClips: new FormControl(false),
+      targetNumberOfClipsX: new FormControl(),
+      targetNumberOfClipsY: new FormControl(),
+      optimizeSpeed: new FormControl(false)
     });
+
   }
 
   save(){
     let resultingQuelle: Quelle = this.dataForm.getRawValue();
+    resultingQuelle.clip = this.clipFormGroup.getRawValue();
+    if(resultingQuelle.clip?.x == undefined || resultingQuelle.clip?.y == undefined 
+      || resultingQuelle.clip?.width == undefined || resultingQuelle.clip?.height == undefined){
+      resultingQuelle.clip = undefined;
+    }
     console.log("save quelle", resultingQuelle);
 
     if(resultingQuelle){
@@ -77,6 +98,7 @@ export class QuelleFormComponent {
 
   cancel(){
     this.dataForm.reset();
+    this.clipFormGroup.reset();
     this.quelle = undefined;
     this.quelleChange.emit(this.quelle);
     this.neu = false;

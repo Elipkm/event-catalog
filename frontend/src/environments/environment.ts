@@ -7,7 +7,7 @@ export const environment = {
     production: false,
     providers: [
         { provide: QuelleService, useClass: QuelleMockService },
-        { provide: QuelleImagesService, useClass: QuelleImagesMockService }
+        { provide: QuelleImagesService, useClass: QuelleImagesMockService },
     ],
 
 };

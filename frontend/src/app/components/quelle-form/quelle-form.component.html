@@ -10,10 +10,6 @@
 
     <form [formGroup]="dataForm">
         <div>
-          <label for="id">ID:</label>
-          <input type="number" id="id" formControlName="id"/>
-        </div>
-        <div>
           <label for="name">Name:</label>
           <input type="text" id="name" formControlName="name" />
         </div>
@@ -22,19 +18,58 @@
           <input type="text" id="url" formControlName="url" />
         </div>
         <div>
-          <label for="resolution_width">Resolution Width:</label>
-          <input type="number" id="resolution_width" formControlName="resolution_width" />
+          <p><b>Viewport</b></p>
+          <div>
+            <label for="viewport_width">Viewport Width:</label>
+            <input type="number" id="viewport_width" formControlName="viewport_width" />
+          </div>
+          <div>
+            <label for="viewport_height">Viewport Height:</label>
+            <input type="number" id="viewport_height" formControlName="viewport_height" />
+          </div>
+        </div>
+        <p>---</p>
+        <div>
+          <label for="fullPage">Fullpage:</label>
+          <input type="checkbox" id="fullPage" formControlName="fullPage" />
+        </div>
+        <div formGroupName="clip"> 
+          <p><b>Clip</b></p>
+          <div>
+            <label for="x">x:</label>
+            <input type="number" id="x" formControlName="x" />
+          </div>
+          <div>
+            <label for="y">y:</label>
+            <input type="number" id="y" formControlName="y" />
+          </div>
+          <div>
+            <label for="width">width:</label>
+            <input type="number" id="width" formControlName="width" />
+          </div>
+          <div>
+            <label for="height">height:</label>
+            <input type="number" id="height" formControlName="height" />
+          </div>
         </div>
         <div>
-          <label for="resolution_height">Resolution Height:</label>
-          <input type="number" id="resolution_height" formControlName="resolution_height" />
-        </div>
-        <div>
-          <label for="anzahl_bilder">Anzahl Bilder:</label>
-          <input type="number" id="anzahl_bilder" formControlName="anzahl_bilder" />
+          <p><b>Multiple Clips</b></p>
+          <div>
+            <label for="multipleClips">Multiple Clips:</label>
+            <input type="checkbox" id="multipleClips" formControlName="multipleClips" />
+          </div>
+          <div>
+            <label for="targetNumberOfClipsX">Number Clips in X:</label>
+            <input type="number" id="targetNumberOfClipsX" formControlName="targetNumberOfClipsX" />
+          </div>
+          <div>
+            <label for="targetNumberOfClipsY">Number Clips in Y:</label>
+            <input type="number" id="targetNumberOfClipsY" formControlName="targetNumberOfClipsY" />
+          </div>
         </div>
     </form>
-       
-    <p-button (click)="save()" [disabled]="!dataForm.valid"><i class="pi pi-save"></i></p-button>
-    <p-button (click)="cancel()"><i class="pi pi-times"></i></p-button>
+    <div style="margin-top: 0.5em; text-align: center;">
+      <p-button (click)="save()" [disabled]="!dataForm.valid" severity="success"><i class="pi pi-save"></i></p-button>
+      <p-button (click)="cancel()" severity="warning"><i class="pi pi-times"></i></p-button>
+    </div>
 }

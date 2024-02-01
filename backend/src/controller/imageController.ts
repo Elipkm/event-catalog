@@ -1,13 +1,10 @@
-import path from "path";
-import fs from "fs";
+import { getImageFilePath, getImageNameList } from "../service/imageService";
 
 export async function getImageHandler(req: any, res: any): Promise<any> {
     try {
       console.log("getImage");
       console.log(req.params);
-      let relativePath = "data/katalog/quelle/id-" + req.params.quelleId + "/" + req.params.imageName;
-      const absoluteFilePath = path.join(process.cwd(), relativePath);
-
+      let absoluteFilePath: string = getImageFilePath(req.params.quelleId, req.params.imageName);
       res.status(200).type('image/png').sendFile(absoluteFilePath);
       return res;
     } catch (error) {
@@ -21,12 +18,7 @@ export async function getImageNameListHandler(req: any, res: any): Promise<any> 
     try {
       console.log("getImageNameList");
       console.log(req.params);
-      let relativePath = "data/katalog/quelle/id-" + req.params.quelleId;
-      const absoluteFilePath = path.join(process.cwd(), relativePath);
-      let fileNames: string[] = [];
-      fs.readdirSync(absoluteFilePath).forEach(file => {
-        fileNames.push(file);
-      })
+      let fileNames = await getImageNameList(req.params.quelleId);
       res.status(200).json(fileNames);
     } catch (error) {
       console.error(error);

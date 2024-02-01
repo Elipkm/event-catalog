@@ -1,5 +1,6 @@
 import { Quelle } from "../model/quelleModel";
 import fs from 'fs';
+import { deleteQuelleImages } from "./imageService";
 
 const filePath = "data/quelle.json";
 
@@ -38,17 +39,21 @@ export async function getQuelle(id: any){
 
 export async function deleteQuelle(id: any){
     console.log("deleteQuelle", id);
-    let alle = getQuelleList();
-    const index = alle.findIndex((item) => item.id === id);
-    alle.splice(index, 1);
-    const jsonString = JSON.stringify(alle, null, 2);
-    fs.writeFile(filePath, jsonString, (err: any) => {
-      if (err) {
-        console.error('Error saving JSON object to file:', err);
-      } else {
-        console.log('JSON object saved to file:', filePath);
-      }
-    });
+    let alleQuellen = getQuelleList();
+    const index = alleQuellen.findIndex((item) => item.id == id);
+    console.log("found quelle at index", index);
+    if(index > -1){
+      alleQuellen.splice(index, 1);
+      const jsonString = JSON.stringify(alleQuellen, null, 2);
+      fs.writeFile(filePath, jsonString, (err: any) => {
+        if (err) {
+          console.log('Error saving JSON object to file:', err);
+        } else {
+          console.log('JSON object saved to file:', filePath);
+          deleteQuelleImages(id);
+        }
+      });
+    }
 }
 
 export function getQuelleList(): Quelle[] {

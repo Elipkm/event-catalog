@@ -1,26 +1,38 @@
 [
   {
     "id": 1,
-    "name": "Hello World",
-    "url": "qwer",
-    "resolution_width": null,
-    "resolution_height": null,
-    "anzahl_bilder": null
-  },
-  {
-    "id": 2,
-    "name": "Get Back",
-    "url": "af",
-    "resolution_width": null,
-    "resolution_height": null,
-    "anzahl_bilder": null
+    "name": "Prime NG",
+    "url": "https://primeng.org/toast",
+    "viewport_width": 1500,
+    "viewport_height": 1500,
+    "fullPage": false,
+    "clip": {
+      "x": 100,
+      "y": 100,
+      "width": 500,
+      "height": 500
+    },
+    "multipleClips": true,
+    "targetNumberOfClipsX": 2,
+    "targetNumberOfClipsY": 2,
+    "optimizeSpeed": false
   },
   {
     "id": 3,
-    "name": "Sweet Sound",
-    "url": "sweet-sound.com",
-    "resolution_width": null,
-    "resolution_height": null,
-    "anzahl_bilder": null
+    "name": "Angular Guide",
+    "url": "XXXhttps://angular.io/guide/router",
+    "viewport_width": 500,
+    "viewport_height": 500,
+    "fullPage": false,
+    "clip": {
+      "x": 0,
+      "y": 0,
+      "width": 500,
+      "height": 500
+    },
+    "multipleClips": true,
+    "targetNumberOfClipsX": null,
+    "targetNumberOfClipsY": null,
+    "optimizeSpeed": false
   }
 ]

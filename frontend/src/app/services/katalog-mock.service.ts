@@ -1,10 +1,11 @@
+import { Observable } from "rxjs";
 import { Katalog } from "../models/katalog.model";
 import { Quelle } from "../models/quelle.model";
 import { KatalogApiService } from "./katalog-api.service";
 
 export class KatalogMockService implements KatalogApiService {
 
-    updateKatalog(quellen: Quelle[]): void {
+    updateKatalog(): Observable<any> {
         throw new Error("Method not implemented.");
     }
     getKatalog(quellen: Quelle[]): Katalog {
