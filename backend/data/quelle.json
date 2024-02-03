@@ -1,38 +1,56 @@
 [
   {
     "id": 1,
-    "name": "Prime NG",
-    "url": "https://primeng.org/toast",
-    "viewport_width": 1500,
-    "viewport_height": 1500,
-    "fullPage": false,
+    "name": "Cafe Carina",
+    "url": "https://www.cafe-carina.at/2020/program/",
+    "viewport_width": 1400,
+    "viewport_height": 1000,
+    "fullPage": null,
     "clip": {
-      "x": 100,
-      "y": 100,
-      "width": 500,
-      "height": 500
+      "x": 0,
+      "y": 150,
+      "width": 1400,
+      "height": 850
     },
     "multipleClips": true,
-    "targetNumberOfClipsX": 2,
-    "targetNumberOfClipsY": 2,
-    "optimizeSpeed": false
+    "targetNumberOfClipsX": 1,
+    "targetNumberOfClipsY": 4,
+    "optimizeSpeed": null
+  },
+  {
+    "id": 2,
+    "name": "Reigen",
+    "url": "https://www.reigen.at/events/liste/",
+    "viewport_width": 360,
+    "viewport_height": 1000,
+    "fullPage": null,
+    "clip": {
+      "x": 0,
+      "y": 250,
+      "width": 360,
+      "height": 450
+    },
+    "multipleClips": true,
+    "targetNumberOfClipsX": 1,
+    "targetNumberOfClipsY": 6,
+    "optimizeSpeed": null
   },
   {
     "id": 3,
-    "name": "Angular Guide",
-    "url": "XXXhttps://angular.io/guide/router",
-    "viewport_width": 500,
-    "viewport_height": 500,
-    "fullPage": false,
+    "name": "Club 1019",
+    "url": "https://club1019.at/events/",
+    "viewport_width": 800,
+    "viewport_height": 1000,
+    "fullPage": null,
     "clip": {
       "x": 0,
-      "y": 0,
-      "width": 500,
-      "height": 500
+      "y": 500,
+      "width": 800,
+      "height": 450
     },
     "multipleClips": true,
-    "targetNumberOfClipsX": null,
-    "targetNumberOfClipsY": null,
-    "optimizeSpeed": false
+    "targetNumberOfClipsX": 1,
+    "targetNumberOfClipsY": 6,
+    "optimizeSpeed": null
   }
 ]

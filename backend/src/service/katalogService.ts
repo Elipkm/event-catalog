@@ -3,8 +3,9 @@ import { getQuelleList } from "./quelleService";
 import { takeScreenshots } from "./screenshotService";
 
 export async function updateKatalog(): Promise<any> {
-    let quellen = getQuelleList();
-    await takeScreenshots(quellen, true);
+    await getQuelleList().then((quellen: Quelle[]) => {
+        takeScreenshots(quellen, true);
+    });
 }
 
 export async function updateKatalogSpecificQuellen(quellen: Quelle[]): Promise<any> {
