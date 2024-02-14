@@ -1,5 +1,5 @@
 # event-catalog
-Angular App to view different websites in one app
+Angular App to take custom screenshots of different websites in one app.
 
 Run commands from project root.
 Run Backend:
