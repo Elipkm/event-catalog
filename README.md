@@ -1,5 +1,6 @@
 # event-catalog
 Angular App to take custom screenshots of different websites in one app.
+uses puppeteer.js
 
 Run commands from project root.
 Run Backend:
